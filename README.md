@@ -46,3 +46,23 @@ example:
 ``` js
 kaaris('debug');
 ````
+
+## Demo
+
+Test Kaaris on your own environment:
+
+``` shell
+git clone https://github.com/dwebcomexposium/widget-js.git
+````
+
+Then:
+
+``` shell
+npm install
+````
+
+Finally:
+
+``` shell
+npm run start
+````
