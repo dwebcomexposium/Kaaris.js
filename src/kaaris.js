@@ -1,4 +1,3 @@
-import { lourd } from './services'
 import { show, showWithParams } from './views/goulag'
 
 const supportedAPI = ['init', 'goulag']; // enlist all methods supported by API (e.g. `mw('event', 'user-login');`)
@@ -7,7 +6,7 @@ const supportedAPI = ['init', 'goulag']; // enlist all methods supported by API 
     The main entry of the application
     */
 function app(window) {
-    console.log('JS-Widget starting');
+    console.log("Kaaris starting");
 
     // set default configurations
     let configurations = {
@@ -16,13 +15,13 @@ function app(window) {
 
     // all methods that were called till now and stored in queue
     // needs to be called now 
-    let globalObject = window[window['JS-Widget']];
+    let globalObject = window[window['Kaaris']];
     let queue = globalObject.q;
     if (queue) {
-        for (var i = 0; i < queue.length; i++) {
+        for (let i = 0; i < queue.length; i++) {
             if (queue[i][0].toLowerCase() == 'debug') {
                 configurations = extendObject(configurations, queue[i][1]);
-                console.log("JS-Widget started", configurations);
+                console.log("Kaaris started", configurations);
             }
             else if (queue[i][0].toLowerCase() == 'init') {
                 show();
@@ -48,7 +47,6 @@ function apiHandler(api, params) {
     if (supportedAPI.indexOf(api) === -1) throw Error(`Method ${api} is not supported`);
 
     console.log(`Handling API call ${api}`, params);
-    console.log(lourd());
 
     switch (api) {
         // TODO: add API implementation

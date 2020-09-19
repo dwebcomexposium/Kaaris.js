@@ -1,11 +1,14 @@
-import html from './goulag.html';
-import layout from './newsletter.html';
-import './goulag.css';
+import html from "./goulag.html";
+import layout from "./newsletter.html";
+import "./goulag.css";
+import { doStyles } from "../services";
 
 let elements = [];
 let body;
 
 export function show() {
+  doStyles();
+
   // convert plain HTML string into DOM elements
   let temporary = document.createElement("div");
   temporary.innerHTML = layout;
@@ -17,44 +20,33 @@ export function show() {
     body.appendChild(temporary.children[0]);
   }
 
-  //body.addEventListener('click', close);
+  fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then((response) => response.json())
+    .then((json) => {
+      return json;
+    })
+    .then((json) => {
+      document.getElementById("legalText").innerHTML = json.body;
+    });
 
-
-
-  // Create new link Element
-  const link = document.createElement("link");
-  const link2 = document.createElement("link");
-
-  // set the attributes for link element
-  link.rel = "stylesheet";
-  link2.rel = "stylesheet";
-  link.type = "text/css";
-  link2.type = "text/css";
-  link.href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css";
-  link2.href = "https://use.fontawesome.com/releases/v5.0.6/css/all.css";
-
-  // Get HTML head element to append
-  // link element to it
-  document.getElementsByTagName("HEAD")[0].appendChild(link);
-  document.getElementsByTagName("HEAD")[0].appendChild(link2);
-
-  function handler (e) {
+  function handler(e) {
     let email = document.getElementById("email").value;
-      if (email !== "") {
-        document.getElementById("email").value = "";
-      }
-    // TODO API Call to Kuzzle or Reach5
+    if (email !== "") {
+      document.getElementById("email").value = "";
+    }
+    // TODO Send data to Kuzzle or Reach5
   }
 
   document.getElementById("register").addEventListener("click", handler);
-
 }
 
 export function showWithParams(text) {
   // convert plain HTML string into DOM elements
   let temporary = document.createElement("div");
   temporary.innerHTML = html;
-  temporary.getElementsByClassName("js-widget-kaaris-content")[0].textContent = text;
+  temporary.getElementsByClassName(
+    "js-widget-kaaris-content"
+  )[0].textContent = text;
 
   // append elements to body
   body = document.getElementsByTagName("body")[0];

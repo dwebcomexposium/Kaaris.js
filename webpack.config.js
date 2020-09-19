@@ -7,9 +7,9 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
 
     return [{
-        entry: './src/kaaris.js',
+        entry: ['babel-polyfill', './src/kaaris.js'],
         output: {
-            filename: 'widget.js',
+            filename: 'kaaris.js',
             path: path.resolve(bundleOutputDir),
         },
         devServer: {
@@ -17,20 +17,20 @@ module.exports = (env) => {
         },
         plugins: isDevBuild
             ? [new webpack.SourceMapDevToolPlugin(), new copyWebpackPlugin([{ from: 'demo/' }])]
-            : [new webpack.optimize.UglifyJsPlugin()],
+            : [],
         module: {
             rules: [
                 { test: /\.html$/i, use: 'html-loader' },
-                { test: /\.css$/i, use: ['style-loader', 'css-loader' + (isDevBuild ? '' : '?minimize')] },
+                { test: /\.css$/i, use: ['style-loader', 'css-loader'] },
                 {
                     test: /\.js$/i, exclude: /node_modules/, use: {
                         loader: 'babel-loader',
                         options: {
                             presets: [['@babel/env', {
-                                'targets': {
-                                    'browsers': ['ie 6', 'safari 7']
-                                }
-                            }]]
+                                            'targets': {
+                                                'browsers': ['ie 6', 'safari 7']
+                                            }
+                                      }]]
                         }
                     }
                 }
