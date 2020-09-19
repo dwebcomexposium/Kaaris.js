@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.js-widget-kaaris-content{
+    position: relative;
+    z-index: 10002;
+    text-align: center;
+    margin: 30px 30px 30px 30%;
+    width: 600px;
+    padding: 10px 20px;
+    border: solid 1px #333
+}
+
+.spacer {
+  clear: both;
+  height: 5px;
+}
+
+.registration-form {
+  max-width: 460px;
+  margin: 40px auto 0;
+  padding: 20px;
+  background-color: #fefefe;
+  font-family: 'roboto';
+}
+.registration-form .title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.registration-form p {
+  font-size: 0.9rem;
+}
+.registration-form .submit-button {
+  margin-top: 10px;
+  background-color: #00B16A;
+}
+
+.input-container {
+  position: relative;
+}
+.input-container .fas {
+  position: absolute;
+  top: 9px;
+  left: 4px;
+  height: 32px;
+  width: 32px;
+  font-size: 1.4rem;
+  color: #999;
+  text-align: center;
+}
+.input-container .fas.green {
+  color: #00B16A;
+}
+.input-container [type="text"], .input-container [type="password"] {
+  padding-left: 40px;
+}
+
+.checkbox-container .checkbox {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #999999;
+}
+.checkbox-container [type="checkbox"] {
+  display: none;
+}
+.checkbox-container [type="checkbox"]:checked + .checkbox:after {
+  position: absolute;
+  top: -1px;
+  left: 4px;
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #00B16A;
+}
