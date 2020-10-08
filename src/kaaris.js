@@ -10,7 +10,8 @@ function app(window) {
 
     // set default configurations
     let configurations = {
-        defaultConfiguration: true
+      defaultConfiguration: true,
+      goulag: "Le baveux dit qu'y a une faille dans le dossier",
     };
 
     // all methods that were called till now and stored in queue
