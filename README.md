@@ -34,7 +34,7 @@ kaaris('init');
 example:
 
 ``` js
-kaaris('goulag', 'que des drogués, des Goro, des khals Drogo');
+kaaris('goulag', 'Que des drogués, des Goro, des Khal Drogo');
 ````
 
 ### debug
