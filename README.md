@@ -49,7 +49,7 @@ kaaris('debug');
 
 ## Demo
 
-Test Kaaris on your own environment:
+Run Kaaris on your own environment:
 
 ``` shell
 git clone https://github.com/dwebcomexposium/widget-js.git
